@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import { connect } from 'react-redux'
 import { fetchPosts } from "../store/actions/postsActions"
+import { PostsStyled } from "../styles/pages/Posts.styled"
+
 
 const Posts = ({ fetchPosts, posts }) => {
     useEffect(() => {
@@ -8,7 +10,7 @@ const Posts = ({ fetchPosts, posts }) => {
     }, [fetchPosts])
 
     return (
-        <div>
+        <PostsStyled>
             <h1>Posts</h1>
             <div>
                 {posts && posts.map(post => (
@@ -18,7 +20,7 @@ const Posts = ({ fetchPosts, posts }) => {
                     </div>
                 ))}
             </div>
-        </div>
+        </PostsStyled>
     )
 }
 

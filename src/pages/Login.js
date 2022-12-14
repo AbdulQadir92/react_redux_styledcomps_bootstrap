@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { login } from "../store/actions/authActions"
+import { LoginStyled, LoginForm } from "../styles/pages/Login.styled"
 
 
 const Login = ({ login, user }) => {
@@ -31,25 +32,27 @@ const Login = ({ login, user }) => {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" id="username" value={formData.username || ''} onChange={handleChange} required />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" value={formData.password || ''} onChange={handleChange} required />
-                </div>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-            <br />
+        <LoginStyled>
             <div>
-                <Link to="/signup">Signup</Link>
+                <h1>Login</h1>
+                <LoginForm onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="username">Username</label>
+                        <input type="text" id="username" value={formData.username || ''} onChange={handleChange} required />
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" value={formData.password || ''} onChange={handleChange} required />
+                    </div>
+                    <div>
+                        <button type="submit">Login</button>
+                    </div>
+                </LoginForm>
+                <div>
+                    <Link to="/signup">Signup</Link>
+                </div>
             </div>
-        </div>
+        </LoginStyled>
     )
 }
 

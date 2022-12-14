@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { signup } from "../store/actions/authActions"
+import { SignupStyled, SignupForm } from "../styles/pages/Signup.styled"
 
 
 const Signup = ({ signup, user }) => {
@@ -30,29 +31,31 @@ const Signup = ({ signup, user }) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" id="username" value={formData.username || ''} onChange={handleChange} required />
-                </div>
-                <div>
-                    <label htmlFor="password1">Password</label>
-                    <input type="password" id="password1" value={formData.password1 || ''} onChange={handleChange} required />
-                </div>
-                <div>
-                    <label htmlFor="password2">Confirm Password</label>
-                    <input type="password" id="password2" value={formData.password2 || ''} onChange={handleChange} required />
-                </div>
-                <div>
-                    <button type="submit">Signup</button>
-                </div>
-            </form>
-            <br />
+        <SignupStyled>
             <div>
-                <Link to="/login">Login</Link>
+                <h1>Signup</h1>
+                <SignupForm onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="username">Username</label>
+                        <input type="text" id="username" value={formData.username || ''} onChange={handleChange} required />
+                    </div>
+                    <div>
+                        <label htmlFor="password1">Password</label>
+                        <input type="password" id="password1" value={formData.password1 || ''} onChange={handleChange} required />
+                    </div>
+                    <div>
+                        <label htmlFor="password2">Confirm Password</label>
+                        <input type="password" id="password2" value={formData.password2 || ''} onChange={handleChange} required />
+                    </div>
+                    <div>
+                        <button type="submit">Signup</button>
+                    </div>
+                </SignupForm>
+                <div>
+                    <Link to="/login">Login</Link>
+                </div>
             </div>
-        </div>
+        </SignupStyled>
     )
 }
 

@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { logout } from "../store/actions/authActions"
+import { NavbarStyled, IconContainer } from "../styles/components/Navbar.styled"
+import { FaMoon, FaSun } from 'react-icons/fa'
 
-const Navbar = ({ user, logout }) => {
+
+const Navbar = ({ user, logout, theme, setTheme }) => {
+    const toggleTheme = (newTheme) => {
+        localStorage.setItem('theme', newTheme);
+        setTheme(newTheme);
+    }
+
     return (
-        <nav style={{ marginBottom: '50px' }}>
+        <NavbarStyled>
             <ul>
                 <li>
                     <Link to="/">Home</Link>
@@ -27,7 +35,15 @@ const Navbar = ({ user, logout }) => {
                     </>
                 )}
             </ul>
-        </nav>
+            <IconContainer>
+                {theme === 'light' ? (
+                    <FaMoon onClick={() => toggleTheme('dark')} />
+                ) : (
+                    <FaSun onClick={() => toggleTheme('light')} />
+                )}
+
+            </IconContainer>
+        </NavbarStyled>
     )
 }
 

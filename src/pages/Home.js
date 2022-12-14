@@ -1,8 +1,10 @@
-
+import { HomeStyled } from '../styles/pages/Home.styled'
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <HomeStyled>
+            Home
+        </HomeStyled>
     )
 }
 
