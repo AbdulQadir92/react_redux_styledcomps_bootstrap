@@ -2,8 +2,17 @@ import styled from "styled-components"
 
 
 export const NavbarStyled = styled.nav`
+    // add these to override bootstrap margin, padding and box-sizing
+    > * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    //
+
     position: fixed;
     top: 0;
+    z-index: 10;
 
     display: flex;
     align-items: center;
