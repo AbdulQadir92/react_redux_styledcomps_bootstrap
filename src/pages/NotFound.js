@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { NotFoundStyled } from "../styles/components/NotFound.styled"
+import { NotFoundStyled } from "../styles/pages/NotFound.styled"
 
 
 const NotFound = () => {
